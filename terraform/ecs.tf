@@ -43,7 +43,7 @@ resource "aws_ecs_task_definition" "app" {
     }]
     environment = [{
       name  = "DATABASE_URL"
-      value = "postgresql://${var.db_username}:${var.db_password}@${aws_db_instance.postgres.endpoint}/appdb"
+      value = "postgresql://${var.db_username}:${var.db_password}@${aws_db_instance.postgres.endpoint}/appdb?sslmode=no-verify"
     }]
     logConfiguration = {
       logDriver = "awslogs"
